@@ -1,4 +1,3 @@
-
 module.exports = ({ env }) => ({
   connection: {
     client: "postgres",
@@ -8,6 +7,12 @@ module.exports = ({ env }) => ({
       database: env("DATABASE_NAME", "strapi"),
       user: env("DATABASE_USERNAME", ""),
       password: env("DATABASE_PASSWORD", ""),
+      pool: {
+        acquireTimeoutMillis: env.int(
+          "DATABASE_POOL_ACQUIRE_TIMEOUT_MILLIS",
+          60000
+        ),
+      },
     },
     useNullAsDefault: true,
   },
