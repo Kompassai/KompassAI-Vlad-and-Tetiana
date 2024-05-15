@@ -19,9 +19,9 @@ module.exports = [
             "'self'",
             "data:",
             "blob:",
-            "amazonaws.com/",
+            "*.amazonaws.com", // Allow images from any subdomain of amazonaws.com
           ],
-          "media-src": ["'self'", "data:", "blob:",  "amazonaws.com/",],
+          "media-src": ["'self'", "data:", "blob:", "*.amazonaws.com"],
           upgradeInsecureRequests: null,
         },
       },
