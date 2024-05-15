@@ -7,8 +7,13 @@ module.exports = [
         useDefaults: true,
         directives: {
           'connect-src': ["'self'", 'https:'],
-          'img-src': ["'self'", 'data:', 'blob:', 'https://strapi-kompassai-bucket.s3.us-east-1.amazonaws.com'],
-          'media-src': ["'self'", 'data:', 'blob:', 'https://strapi-kompassai-bucket.s3.us-east-1.amazonaws.com'],
+          'img-src': [
+            "'self'",
+            'data:',
+            'blob:',
+            `https://${env('AWS_BUCKET')}.s3.${env('AWS_REGION')}.amazonaws.com`
+          ],
+          'media-src': ["'self'", 'data:', 'blob:', `https://${env('AWS_BUCKET')}.s3.${env('AWS_REGION')}.amazonaws.com`],
           upgradeInsecureRequests: null,
         },
       },
