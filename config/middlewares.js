@@ -12,16 +12,17 @@ module.exports = [
     name: "strapi::security",
     config: {
       contentSecurityPolicy: {
+        useDefaults: true,
         directives: {
-          "script-src": ["'self'", "'unsafe-inline'", "cdn.jsdelivr.net"],
+          "connect-src": ["'self'", "https:"],
           "img-src": [
             "'self'",
             "data:",
-            "cdn.jsdelivr.net",
-            "strapi.io",
-            "dl.airtable.com",
-            "strapi-kompassai-bucket.s3.us-east-1.amazonaws.com",
+            "blob:",
+            "*.amazonaws.com/",
           ],
+          "media-src": ["'self'", "data:", "blob:"],
+          upgradeInsecureRequests: null,
         },
       },
     },
